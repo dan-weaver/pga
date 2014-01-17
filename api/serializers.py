@@ -17,14 +17,13 @@ class ResultSerializer(serializers.ModelSerializer):
 		fields = ('income', 'golfer', 'id', 'event')
 
 class GolferSerializer(serializers.ModelSerializer):
-	prize_money = serializers.Field()
-	# results = serializers.SlugRelatedField(many=True, slug_field='income')
+	prize_money = serializers.IntegerField(required=False)
 	class Meta:
 		model = Golfer
-		fields = ('last_name', 'first_name', 'id', 'prize_money')
+		fields = ('name', 'id', 'prize_money')
 
 class GolferInputSerializer(serializers.ModelSerializer):
 	# results = serializers.SlugRelatedField(many=True, slug_field='income')
 	class Meta:
 		model = Golfer
-		fields = ('last_name', 'first_name', 'id')
+		fields = ('name', 'id')
